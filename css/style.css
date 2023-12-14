@@ -35,6 +35,7 @@ input,select{
     outline: 0;
     border: 1px solid black;
     font-size: 20px;
+    text-transform: uppercase;
 }
 select{
     height: 50px;

@@ -13,7 +13,7 @@
             <h1>Enter Your Information</h1>
             <form name="submit-to-google-sheet">
                 <input type="text" name="NAME" placeholder="Enter Your Name" required>
-                <input type="text" name="NUMBER" placeholder="Enter Your Number" required>
+                <input type="text" value="+880" name="NUMBER" placeholder="Enter Your Number" required>
                 <select name="BLOOD" id="" required>
                     <option value="">select</option>
                     <option value="A+">A+</option>
@@ -26,7 +26,13 @@
                     <option value="O-">O-</option>
                 </select>
                 <button type="submit">Submit Information</button>
-            </form><br>            
+            </form>
+            <div class="vew-link">
+                <a href="https://docs.google.com/spreadsheets/d/1_d2lC1PDRR8Op0SUcRPAVWxrGoe7fckpVbioZiua5q4/edit?usp=sharing">
+                    <button>View Informations</button>
+                </a>
+            </div>
+            <br>            
             <span id="msg"></span>
         </div>
     </section>

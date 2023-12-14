@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NORTH HOUSE-3</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="favicon.jpg" type="image/x-icon">
+</head>
+<body>
+    <section class="form-section">
+        <div class="border-section">
+            <h1>Enter Your Information</h1>
+            <form name="submit-to-google-sheet">
+                <input type="text" name="NAME" placeholder="Enter Your Name" required>
+                <input type="text" name="NUMBER" placeholder="Enter Your Number" required>
+                <select name="BLOOD" id="" required>
+                    <option value="">select</option>
+                    <option value="A+">A+</option>
+                    <option value="B+">B+</option>
+                    <option value="AB+">AB+</option>
+                    <option value="O+">O+</option>
+                    <option value="A-">A-</option>
+                    <option value="B-">B-</option>
+                    <option value="AB-">AB-</option>
+                    <option value="O-">O-</option>
+                </select>
+                <button type="submit">Submit Information</button>
+            </form><br>            
+            <span id="msg"></span>
+        </div>
+    </section>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwDMafw0iQeleC6fhwP6jR4skiNE_0aGgCfqmrK7-sW1lt7C4Uf9n0drTeLkBiSeXSvdQ/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const msg = document.getElementById('msg')
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                msg.innerHTML="Your Information Has Submitted Successfully!"
+                setTimeout(function(){
+                    msg.innerHTML=""
+                },5000)
+                form.reset()
+            })
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+</body>
+</html>
